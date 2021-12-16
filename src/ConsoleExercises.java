@@ -27,8 +27,10 @@ public class ConsoleExercises {
         System.out.println("Enter the length and width of your room: ");
         String lengthInput = scanner.nextLine();
         String widthInput = scanner.nextLine();
-        int convertedLength = Integer.parseInt(lengthInput);
-        int convertedWidth = Integer.parseInt(widthInput);
+//        int convertedLength = Integer.parseInt(lengthInput);
+//        int convertedWidth = Integer.parseInt(widthInput);
+        double convertedLength = Double.parseDouble(lengthInput);
+        double convertedWidth = Double.parseDouble(widthInput);
 
         System.out.println(convertedLength * convertedWidth + " is the area of your room and " + ((convertedLength * 2) + (convertedWidth * 2)) + " is the perimeter of your room." );
 

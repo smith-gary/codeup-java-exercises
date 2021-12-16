@@ -67,9 +67,9 @@ public class ControlFlowExercises {
             long squaredOutput = h * h;
             long cubedOutput = h * squaredOutput;
             if (squaredOutput >= 10 && cubedOutput >= 10) {
-                System.out.printf("%d\t\t| %d\t\t| %d %n", h, squaredOutput, cubedOutput);
+                System.out.printf("%-8d| %-10d| %-8d %n", h, squaredOutput, cubedOutput);
             } else {
-                System.out.printf("%d\t\t| %d\t\t\t| %d %n", h, squaredOutput, cubedOutput);
+                System.out.printf("%-8d| %-10d| %-10d %n", h, squaredOutput, cubedOutput);
             }
 
         }

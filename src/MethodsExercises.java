@@ -47,26 +47,54 @@ public class MethodsExercises {
     }
 
     public static void getFactorial(int min, int max) {
-        String conFac = "";
+        boolean conFac = true;
         do {
+            System.out.print("Enter a number between 1 and 10: ");
             Scanner sc = new Scanner(System.in);
             int userInput = sc.nextInt();
             long factorialInput = 1;
             if (userInput <= max && userInput >= min) {
-                System.out.println(userInput);
+                System.out.print(userInput + "! = ");
                 for (int i = userInput; i > 0; i--) {
                     factorialInput *= i;
                 }
                 System.out.println(factorialInput);
                 System.out.println("would you like to continue?");
-                conFac = sc.nextLine();
+                conFac = sc.nextBoolean();
             } else {
                 System.out.println("Invalid input try again: ");
                 getFactorial(1, 10);
             }
-        } while (conFac.equalsIgnoreCase("y"));
+        } while (conFac);
 
     }
+
+    public static int randomRoll1(int die1) {
+        int randomNum1 = (int) (Math.random() * die1);
+        return randomNum1;
+    }
+    public static int randomRoll2(int die2) {
+        int randomNum2 = (int) (Math.random() * die2);
+        return randomNum2;
+    }
+
+    public static void diceRoll() {
+        String roll = "";
+        do {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of sides of the pair of dice: ");
+        int die1 = sc.nextInt();
+        int die2 = sc.nextInt();
+        Scanner sc1 = new Scanner(System.in);
+        System.out.println("Roll the dice? y/n");
+        roll = sc1.nextLine();
+            if (roll.equalsIgnoreCase("y")) {
+                System.out.println("Die 1: " + randomRoll1(die1) + " Die 2: " + randomRoll2(die2));
+            }
+        } while (roll.equalsIgnoreCase("y")) ;
+    }
+
+
 
     public static void main(String[] args) {
 //        add(5, 5);
@@ -81,9 +109,9 @@ public class MethodsExercises {
 //        System.out.print("Enter a number between 1 and 10: ");
 //        int userInput = getInteger(1, 10);
 //        System.out.println("Your number is within range!");
-        System.out.print("Enter a number between 1 and 10: ");
-        getFactorial(1, 10);
+//        getFactorial(1, 10);
 
+        diceRoll();
 
     }
 }

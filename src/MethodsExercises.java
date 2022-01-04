@@ -46,6 +46,28 @@ public class MethodsExercises {
 
     }
 
+    public static void getFactorial(int min, int max) {
+        String conFac = "";
+        do {
+            Scanner sc = new Scanner(System.in);
+            int userInput = sc.nextInt();
+            long factorialInput = 1;
+            if (userInput <= max && userInput >= min) {
+                System.out.println(userInput);
+                for (int i = userInput; i > 0; i--) {
+                    factorialInput *= i;
+                }
+                System.out.println(factorialInput);
+                System.out.println("would you like to continue?");
+                conFac = sc.nextLine();
+            } else {
+                System.out.println("Invalid input try again: ");
+                getFactorial(1, 10);
+            }
+        } while (conFac.equalsIgnoreCase("y"));
+
+    }
+
     public static void main(String[] args) {
 //        add(5, 5);
 //        subtract(10, 5);
@@ -56,9 +78,12 @@ public class MethodsExercises {
 //        divide(10, 0);
 //        modulus(11, 5);
 
+//        System.out.print("Enter a number between 1 and 10: ");
+//        int userInput = getInteger(1, 10);
+//        System.out.println("Your number is within range!");
         System.out.print("Enter a number between 1 and 10: ");
-        int userInput = getInteger(1, 10);
-        System.out.println("Your number is within range!");
+        getFactorial(1, 10);
+
 
     }
 }

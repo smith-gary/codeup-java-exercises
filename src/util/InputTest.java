@@ -9,9 +9,9 @@ public class InputTest {
 
 //        System.out.println(sc.yesNo());
 
-//        System.out.println(sc.getInteger(1, 10));
+        System.out.println(sc.getInt());
 
-        System.out.println(sc.getDouble(1, 10));
+//        System.out.println(sc.getDouble(1, 10));
 
     }
 }

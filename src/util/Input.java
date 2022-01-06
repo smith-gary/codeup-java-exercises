@@ -30,7 +30,7 @@ public class Input {
     }
 
     public int getInt(int min, int max) {
-        System.out.println("Enter a number between 1 and 10");
+        System.out.printf("Enter a number between %d and %d \n", min, max);
         int userInput = scanner.nextInt();
         if (userInput <= max && userInput >= min) {
             return userInput;

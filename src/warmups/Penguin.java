@@ -1,3 +1,5 @@
+package warmups;
+
 public class Penguin {
 
     private String name;
@@ -41,6 +43,13 @@ public class Penguin {
 
     }
 
+    public Penguin(String name, int weight, String species, String sex) {
+        this.name = name;
+        this.weight = weight;
+        this.species = species;
+        this.sex = sex;
+    }
+
     public static boolean canFly() {
         return false;
     }
@@ -50,6 +59,6 @@ public class Penguin {
     }
 
     public static void main(String[] args) {
-        
+
     }
 }

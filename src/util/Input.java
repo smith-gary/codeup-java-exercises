@@ -19,14 +19,25 @@ public class Input {
         return scanner.nextLine();
     }
 
+  public String getString(String prompt) {
+      System.out.println(prompt);
+      String userResponse = scanner.nextLine();
+      return userResponse;
+    }
+
     public boolean yesNo() {
         System.out.println("yes or no? ");
-        String answer = scanner.nextLine();
+        String answer = scanner.next();
         if (answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y")) {
             return true;
         } else {
             return false;
         }
+    }
+    public boolean yesNo(String prompt) {
+        System.out.println(prompt);
+        String answer = scanner.next();
+        return answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y");
     }
 
     public int getInt(int min, int max) {
@@ -38,16 +49,16 @@ public class Input {
         System.out.println("Invalid input try again: ");
         return getInt(min, max);
     }
-    public int getInt() {
-        System.out.println("Enter a number between 1 and 10");
+    public int getInt(String prompt) {
+        System.out.println(prompt);
         int userInput = scanner.nextInt();
-        int max = 10;
-        int min = 1;
+        int max = 5;
+        int min = 0;
         if (userInput <= max && userInput >= min) {
             return userInput;
         }
         System.out.println("Invalid input try again: ");
-        return getInt();
+        return getInt(prompt);
     }
 
     public double getDouble(double min, double max) {

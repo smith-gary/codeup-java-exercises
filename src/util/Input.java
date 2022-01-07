@@ -52,7 +52,7 @@ public class Input {
     public int getInt(String prompt) {
         System.out.println(prompt);
         int userInput = scanner.nextInt();
-        int max = 5;
+        int max = 7;
         int min = 0;
         if (userInput <= max && userInput >= min) {
             return userInput;

@@ -106,7 +106,4 @@ public class MoviesArray {
         };
     }
 
-    public MoviesArray() {
-    }
-
 }

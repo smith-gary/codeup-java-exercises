@@ -13,9 +13,7 @@ public class MoviesApplication {
         MoviesArray showAll = new MoviesArray();
         test = showAll.findAll();
         for (Movie movie : test) {
-
             switch (selection) {
-
                 case 1:
                     System.out.println(movie.getName() + " - " + movie.getCategory());
                     break;
@@ -43,6 +41,18 @@ public class MoviesApplication {
                         System.out.println(movie.getName());
                     }
                     break;
+                    case 6:
+                    boolean musical = movie.getCategory().equals("musical");
+                    if (musical) {
+                        System.out.println(movie.getName());
+                    }
+                    break;
+                    case 7:
+                    boolean comedy = movie.getCategory().equals("comedy");
+                    if (comedy) {
+                        System.out.println(movie.getName());
+                    }
+                    break;
                 default:
                     return 0;
             }
@@ -50,15 +60,14 @@ public class MoviesApplication {
         return -1;
     }
 
-
-
     public static void main(String[] args) {
         Input viewing = new Input();
-
-       int selection = viewing.getInt("Viewing options: \n 0: exit \n 1: view all \n 2: view animated \n 3: view drama \n 4: view horror \n 5: view scifi \n Select one: ");
-        System.out.println(selection);
-        displayMovie(selection);
-
-        System.out.println(viewing.yesNo("Would you like to continue? (yes/no)"));
+        boolean userContinue = true;
+        do {
+            int selection = viewing.getInt("Viewing options: \n 0: exit \n 1: view all \n 2: view animated \n 3: view drama \n 4: view horror \n 5: view scifi \n 6: view musical \n 7: view comedy \n Select one: ");
+            displayMovie(selection);
+            System.out.println("");
+            userContinue = viewing.yesNo("Would you like to continue? (yes/no)");
+        } while (userContinue);
     }
 }

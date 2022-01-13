@@ -1,31 +1,12 @@
 package groceries;
 
-import java.util.ArrayList;
-
 public class GroceryItem {
     protected String name;
-    protected String category;
-    protected ArrayList<String> list;
+    protected int quantity;
 
-    public GroceryItem(ArrayList<String> list) {
-        this.list = list;
-    }
-    public GroceryItem() {
-
-    }
-
-    public GroceryItem(String name, String category) {
+    public GroceryItem(String name, int quantity) {
         this.name = name;
-        this.category = category;
-
-    }
-
-    public ArrayList<String> getList() {
-        return list;
-    }
-
-    public void setList(ArrayList<String> list) {
-        this.list = list;
+        this.quantity = quantity;
     }
 
     public String getName() {
@@ -36,18 +17,11 @@ public class GroceryItem {
         this.name = name;
     }
 
-    public String getCategory() {
-        return category;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
-
-    public void addItem(String name) {
-        this.name = name;
-        list.add(name);
-    }
-
-
 }

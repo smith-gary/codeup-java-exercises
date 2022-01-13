@@ -1,53 +1,66 @@
 package groceries;
 
+import util.Input;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import static groceries.GroceryList.getList;
-
 public class GroceryListApp {
     public static void main(String[] args) {
-        HashMap<GroceryItem, String> storeItems = new HashMap<>();
-        GroceryItem soup = new GroceryItem("Soup", "canned");
-        GroceryItem steak = new GroceryItem("Steak", "meat");
-        GroceryItem onion = new GroceryItem("Onion", "vegetable");
-        GroceryItem avocado = new GroceryItem("Avocado", "fruit");
-        ArrayList<GroceryItem> groceryList = new ArrayList<>();
-        groceryList.add(soup);
-        groceryList.add(steak);
-        groceryList.add(onion);
-        groceryList.add(avocado);
-        storeItems.put(soup, "Chicken Noodle Soup");
-        storeItems.put(steak, "Ribeye");
-        storeItems.put(onion, "Yellow Onion");
-        storeItems.put(avocado, "Haas Avocado");
-        System.out.println(storeItems.get(steak));
-        System.out.println(storeItems.keySet());
+        HashMap<String, ArrayList<GroceryItem>> storeItems = new HashMap<>();
+        storeItems.put("Meat", new ArrayList<>());
+        storeItems.put("Produce", new ArrayList<>());
+        storeItems.put("Dairy", new ArrayList<>());
+        storeItems.put("Home Goods", new ArrayList<>());
+        Scanner sc = new Scanner(System.in);
+        Input userContinue = new Input();
+        System.out.println("Welcome!\n");
+        System.out.println("1: Create a grocery list?");
+        System.out.println("2: Exit");
+        int listAnswer = sc.nextInt();
+        if (listAnswer == 1) {
+            System.out.println("Here are the categories to choose from: ");
+            System.out.println(storeItems.keySet());
+            System.out.println("You can type exit at anytime.");
+            ArrayList<String> listItems = new ArrayList<>();
+            do {
+                System.out.println("Enter a category: \n");
+                String catAnswer = sc.nextLine();
 
+                switch (catAnswer) {
+                    case "Home Goods":
+                        System.out.println("What home goods would you like?");
+                        String hgItem = sc.nextLine();
+                        listItems.add(hgItem);
+                        break;
+                    case "Produce":
+                        System.out.println("What produce would you like?");
+                        String proItem = sc.nextLine();
+                        listItems.add(proItem);
+                        break;
+                    case "Dairy":
+                        System.out.println("What dairy product would you like?");
+                        String dairyItem = sc.nextLine();
+                        listItems.add(dairyItem);
+                        break;
+                    case "Meat":
+                        System.out.println("What meat product would you like?");
+                        String meatItem = sc.nextLine();
+                        listItems.add(meatItem);
+                        System.out.println("add more items? y/n");
+                        if (sc.nextLine().equalsIgnoreCase("yes") || sc.nextLine().equalsIgnoreCase("y")) {
 
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("Would you like to create a grocery list?");
-//        String createListAnswer = sc.nextLine();
-//        System.out.println("Would you like to enter a new item?");
-//        String newItemAnswer = sc.nextLine();
-        System.out.println("Here are the categories to choose from: ");
-        for (GroceryItem item : groceryList) {
-            System.out.println(item.getCategory());
+                        } else {
+                            break;
+                        }
+                    default:
+                        System.out.println("would you like to exit?");
+                }
+            } while (userContinue.yesNo("Continue?"));
+            System.out.println(listItems);
         }
-        String categoryAnswer = sc.nextLine();
-        switch (categoryAnswer) {
-            case "canned":
-                System.out.println();
-
-        }
-        System.out.println("Please enter the name of the item: ");
-        String itemAnswer = sc.nextLine();
-        System.out.println("Please enter the quantity: ");
-        int itemNumber = sc.nextInt();
-        System.out.println("Would you like to add another item or checkout?");
-        String finalAnswer = sc.nextLine();
-
-
+        System.out.println("Goodbye, and have a wonderful day!");
     }
 }
+

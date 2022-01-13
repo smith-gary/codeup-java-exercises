@@ -1,6 +1,7 @@
 package util;
 
 import java.util.Scanner;
+import java.util.*;
 
 
 public class Input {
@@ -42,13 +43,21 @@ public class Input {
 
     public int getInt(int min, int max) {
         System.out.printf("Enter a number between %d and %d \n", min, max);
-        int userInput = scanner.nextInt();
-        if (userInput <= max && userInput >= min) {
-            return userInput;
+        String userInput = getString();
+        try {
+            if (Integer.valueOf(userInput) <= max && Integer.valueOf(userInput) >= min) {
+                return Integer.valueOf(userInput);
+            } else {
+                System.out.println("Invalid input try again: \n");
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            System.out.println("Not a number, try again: \n");
         }
-        System.out.println("Invalid input try again: ");
-        return getInt(min, max);
+            return getInt(min, max);
+
     }
+
     public int getInt(String prompt) {
         System.out.println(prompt);
         int userInput = scanner.nextInt();
@@ -63,11 +72,17 @@ public class Input {
 
     public double getDouble(double min, double max) {
         System.out.println("Enter a number between 1 and 10");
-        double userInput = scanner.nextInt();
-        if (userInput <= max && userInput >= min) {
-            return userInput;
+        String userInput = getString();
+        try {
+            if (Double.valueOf(userInput) <= max && Double.valueOf(userInput) >= min) {
+                return Double.valueOf(userInput);
+            } else {
+                System.out.println("Invalid input try again: \n");
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            System.out.println("Not a number, try again: \n");
         }
-        System.out.println("Invalid input try again: ");
         return getDouble(min, max);
     }
 

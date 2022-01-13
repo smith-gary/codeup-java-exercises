@@ -98,9 +98,27 @@ public class Input {
         return getDouble();
     }
 
-
-    public static void main(String[] args) {
-
-
+    public void getBinary() {
+        System.out.println("Enter a binary number: ");
+        String userInput = getString();
+        try {
+            System.out.println("Your number is " + Integer.parseInt(userInput, 2));
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            System.out.println("Not a binary number, try again: \n");
+            getBinary();
+        }
     }
-}
+
+    public void getHex() {
+            System.out.println("Enter a hexidecimal number: ");
+            String hexInput = getString();
+            try {
+                System.out.println("Your number is " + Integer.parseInt(hexInput, 16));
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                System.out.println("Not a hexidecimal number, try again: \n");
+                getHex();
+            }
+        }
+    }

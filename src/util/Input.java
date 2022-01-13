@@ -100,7 +100,7 @@ public class Input {
         System.out.println("Enter a binary number: ");
         String userInput = getString();
         try {
-            System.out.println("Your number is " + Integer.parseInt(userInput, 2));
+            System.out.println("Your number is " + Integer.valueOf(userInput, 2));
         } catch (NumberFormatException e) {
             e.printStackTrace();
             System.out.println("Not a binary number, try again: \n");
@@ -112,7 +112,7 @@ public class Input {
             System.out.println("Enter a hexidecimal number: ");
             String hexInput = getString();
             try {
-                System.out.println("Your number is " + Integer.parseInt(hexInput, 16));
+                System.out.println("Your number is " + Integer.valueOf(hexInput, 16));
             } catch (NumberFormatException e) {
                 e.printStackTrace();
                 System.out.println("Not a hexidecimal number, try again: \n");

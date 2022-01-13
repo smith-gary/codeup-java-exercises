@@ -58,16 +58,15 @@ public class Input {
 
     }
 
-    public int getInt(String prompt) {
-        System.out.println(prompt);
-        int userInput = scanner.nextInt();
-        int max = 7;
-        int min = 0;
-        if (userInput <= max && userInput >= min) {
-            return userInput;
+    public int getInt() {
+        String userInput = getString("Enter a number.");
+        try {
+           return Integer.valueOf(userInput);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            System.out.println("Not a number, try again: \n");
         }
-        System.out.println("Invalid input try again: ");
-        return getInt(prompt);
+        return getInt();
     }
 
     public double getDouble(double min, double max) {
@@ -87,14 +86,13 @@ public class Input {
     }
 
     public double getDouble() {
-        System.out.println("Enter a number between 1 and 10");
-        double userInput = scanner.nextInt();
-        double max = 10;
-        double min = 1;
-        if (userInput <= max && userInput >= min) {
-            return userInput;
+        String userInput = getString("Enter a number between 1 and 10");
+        try {
+                return Double.valueOf(userInput);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            System.out.println("Not a number, try again: \n");
         }
-        System.out.println("Invalid input try again: ");
         return getDouble();
     }
 

@@ -1,6 +1,6 @@
 package shapes;
 
-public class ShapeTest {
+public class ShapesTest {
     public static void main(String[] args) {
         Measurable myShape;
         myShape = new Square(5);

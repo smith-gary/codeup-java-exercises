@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Highlow {
+public class HighLow {
 
     public static int randomNumber() {
         int randNum =  (int) (Math.random() * 100);
